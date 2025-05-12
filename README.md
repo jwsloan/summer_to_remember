@@ -1,5 +1,60 @@
 # Summer to Remember
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+## 🚀 Quickstart
+
+1. **Clone the repo:**
+   ```sh
+   git clone https://github.com/yourusername/summer_to_remember.git
+   cd summer_to_remember
+   ```
+
+2. **Install CLI dependencies:**
+   ```sh
+   cd cli
+   npm install
+   ```
+
+3. **Set up Firebase and Google APIs:**  
+   Follow the [Setup instructions](#setup) below to configure Firebase, Google APIs, and OAuth credentials.
+
+4. **Run the CLI setup script:**
+   ```sh
+   node cli/manual_try.js
+   ```
+   This will create your Google Tasks list, Calendar, and Photos album, and store their IDs for the app.
+
+5. **Deploy the app:**
+   ```sh
+   firebase deploy
+   ```
+
+---
+
+## 📚 Table of Contents
+
+- [Purpose](#purpose)
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+- [Security Considerations](#security-considerations)
+- [Shoelace Integration](#shoelace-integration)
+- [Getting Started](#getting-started)
+- [Set Up Firebase Project](#1-set-up-firebase-project)
+- [Enable Google Authentication in Firebase](#1a-enable-google-authentication-in-firebase)
+- [Enable Google APIs and Set Up OAuth](#2-enable-google-apis-and-set-up-oauth)
+- [Configure Firebase Authentication](#3-configure-firebase-authentication)
+- [Set Up Pre-commit Hooks (Recommended)](#3-set-up-pre-commit-hooks-recommended)
+- [Deploying the App](#4-deploying-the-app)
+- [Firestore Security Rules](#5-firestore-security-rules)
+- [Manual Test Checklist](#manual-test-checklist)
+- [License](#license)
+- [CLI: Setup Google Resources](#cli-setup-google-resources)
+- [Troubleshooting: Google Photos API 403 Errors](#troubleshooting-google-photos-api-403-errors)
+- [Google API Scopes](#google-api-scopes)
+
+---
+
 ## Purpose
 I am building a static mobile-responsive web app to help me and my spouse track, prioritize, and schedule activities throughout the summer. The app should connect Google Tasks, Google Calendar, and Google Photos, allowing us to manage activities, schedule events, and capture memories with photos. We want to integrate all three services, with a clean, simple UI that works well on mobile devices. The app should be lightweight and easy to use.
 
@@ -76,15 +131,25 @@ Google Sign-In is now enabled for your project. You can now use Google authentic
    - Google Calendar API
    - Google Photos Library API
    - Google Picker API
-4. Go to **APIs & Services > OAuth consent screen**. Choose **External** (recommended for most users, including personal/family use). Fill out the required fields.
+4. **Important: Add Google Photos Library API scopes to your OAuth consent screen**
+   - In the left sidebar, click **Data Access**.
+   - At the top of the Data Access page, click **Edit app** or **Add or Remove Scopes**.
+   - In the dialog, search for and add:
+     - `https://www.googleapis.com/auth/photoslibrary`
+     - `https://www.googleapis.com/auth/photoslibrary.readonly`
+     - `https://www.googleapis.com/auth/photoslibrary.appendonly`
+   - Save your changes.
+   - If your consent screen is in "testing" mode, make sure your Google account is listed as a test user (see the "Audience" section in the sidebar).
+   - **Note:** This step is required for Google Photos API access. If you skip it, you will get 403 errors even if your code requests the correct scopes. Google Tasks and Calendar do not require this step, but Photos does.
+5. In the OAuth consent screen, choose **External** (recommended for most users, including personal/family use) and fill out the required fields if you haven't already.
    
    **How to add test users:**
-   - In the OAuth consent screen setup, go to the **Audience** tab.
+   - In the left sidebar, click **Audience**.
    - In the Audience section, find the "Test users" area.
    - Click "Add Users" and enter the email addresses of the Google accounts you want to allow access during testing (e.g., your own and your spouse's Gmail addresses).
    - Save your changes. Only these users will be able to authorize the app until it is published.
 
-5. Go to **APIs & Services > Credentials** and create an **OAuth 2.0 Client ID** for a Web application:
+6. Go to **APIs & Services > Credentials** and create an **OAuth 2.0 Client ID** for a Web application:
    - For local development:
      - Authorized JavaScript origin: `http://localhost:5000` (default for Firebase Hosting emulators)
      - Authorized redirect URI: `http://localhost:5000`
@@ -171,4 +236,22 @@ service cloud.firestore {
 ---
 
 ## License
-MIT (or your preferred license) 
+MIT (or your preferred license)
+
+## CLI: Setup Google Resources
+
+To quickly create your Google Tasks list, Calendar, and Photos album for this app, use the CLI tool in the `cli/` directory. See [cli/README.md](cli/README.md) for instructions. 
+
+### Troubleshooting: Google Photos API 403 Errors
+- If you receive a 403 error when accessing the Google Photos API, double-check that you have added the required Photos Library scope (`https://www.googleapis.com/auth/photoslibrary`) to your OAuth consent screen as described above. Tasks and Calendar will work without this, but Photos will not.
+- After adding the scope, delete your `token.json` (or equivalent) and re-authenticate to ensure your new token includes the approved scope.
+
+## Google API Scopes
+
+For Google Photos integration, use the top-level scope:
+
+```
+https://www.googleapis.com/auth/photoslibrary
+```
+
+This scope allows both creating and listing albums, and is required for full functionality. 
