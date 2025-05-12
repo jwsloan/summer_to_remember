@@ -1,0 +1,12 @@
+---
+description:  Design interfaces with a mobile-first approach, ensuring responsiveness across devices.
+globs: 
+alwaysApply: false
+---
+## ✅ Mobile-First Design
+
+All pages and components must be designed with a mobile-first approach.
+
+- Use responsive units and media queries
+- Prioritize small-screen usability
+- Avoid fixed-width layouts

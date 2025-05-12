@@ -1,0 +1,11 @@
+---
+description: Implement secure Google authentication and API usage, ensuring HTTPS and scoped OAuth tokens.
+globs: 
+alwaysApply: false
+---
+## ✅ Secure Google Integration
+
+- Use Firebase Authentication with Google Sign-In
+- Only request OAuth scopes for Calendar, Tasks, and Photos
+- Use HTTPS for all API calls
+- Never hardcode credentials or tokens

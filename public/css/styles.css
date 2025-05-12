@@ -1,0 +1,66 @@
+:root {
+  --color-sunshine-yellow: #FFD600;
+  --color-sky-blue: #4FC3F7;
+  --color-coral: #FF6F61;
+  --color-palm-green: #43A047;
+  --color-ocean-teal: #26C6DA;
+  --color-sand-beige: #FFF8E1;
+  --color-sunset-orange: #FF8A65;
+  --color-bright-pink: #FF4081;
+
+  /* Shoelace theme overrides */
+  --sl-color-primary-600: var(--color-sky-blue);
+  --sl-color-success-600: var(--color-palm-green);
+  --sl-color-warning-600: var(--color-sunset-orange);
+  --sl-color-danger-600: var(--color-coral);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  background: var(--color-sand-beige);
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(90deg, var(--color-sky-blue), var(--color-sunshine-yellow));
+  color: #222;
+  padding: 1.5rem 1rem 1rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  background: var(--color-ocean-teal);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+sl-card {
+  width: 100%;
+  max-width: 420px;
+  margin: 1rem 0;
+  background: #fff;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 0.5rem;
+  }
+  sl-card {
+    max-width: 100%;
+  }
+} 

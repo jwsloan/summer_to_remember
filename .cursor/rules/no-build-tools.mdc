@@ -1,0 +1,14 @@
+---
+description: Prevent the use of build systems or bundlers like Webpack or Vite. All code should run directly in the browser.
+globs: 
+alwaysApply: false
+---
+## ❌ No Build Tools
+
+Avoid any build systems or bundlers like:
+- Webpack
+- Vite
+- Rollup
+- Babel
+
+All code should run directly in the browser with no transpilation step.

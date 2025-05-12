@@ -1,0 +1,14 @@
+---
+description: Use only plain HTML, CSS, and JavaScript. Do not use frameworks like React, Vue, or Angular.
+globs: 
+alwaysApply: false
+---
+## ❌ No Frameworks or Templating Engines
+
+Use only plain HTML, CSS, and JavaScript.
+
+Do not use:
+- React, Vue, Angular, Svelte, or other JS frameworks.
+- JSX, Handlebars, or any templating engines.
+
+This project must remain lightweight and framework-free.

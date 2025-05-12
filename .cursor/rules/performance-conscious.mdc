@@ -1,0 +1,11 @@
+---
+description: Prioritize performance by minimizing file sizes and dependencies, and optimizing load times.
+globs: 
+alwaysApply: false
+---
+## ✅ Performance-Conscious Code
+
+- Minimize file sizes and dependencies
+- Lazy-load assets when possible
+- Avoid large libraries or redundant scripts
+- Inline critical styles if appropriate
