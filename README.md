@@ -35,6 +35,7 @@
 ## 📚 Table of Contents
 
 - [Purpose](#purpose)
+- [Philosophy](#philosophy-built-on-familiar-tools-designed-with-story-first-engineering)
 - [Tech Stack](#tech-stack)
 - [Features](#features)
 - [Security Considerations](#security-considerations)
@@ -52,11 +53,20 @@
 - [CLI: Setup Google Resources](#cli-setup-google-resources)
 - [Troubleshooting: Google Photos API 403 Errors](#troubleshooting-google-photos-api-403-errors)
 - [Google API Scopes](#google-api-scopes)
+- [Testing](#testing)
+- [Running Tests](#running-tests)
+- [Test Files](#test-files)
 
 ---
 
 ## Purpose
 I am building a static mobile-responsive web app to help me and my spouse track, prioritize, and schedule activities throughout the summer. The app should connect Google Tasks, Google Calendar, and Google Photos, allowing us to manage activities, schedule events, and capture memories with photos. We want to integrate all three services, with a clean, simple UI that works well on mobile devices. The app should be lightweight and easy to use.
+
+## Philosophy: Built on Familiar Tools, Designed with Story-First Engineering
+
+This app is powered by the Google services you already use—Tasks, Calendar, and Photos. Rather than building a new ecosystem, it enhances the one you're already part of. You log in with Google, and everything else just works.
+
+Development is guided by a story-first methodology. Every feature begins with a user-centered story, grounded in a clear information architecture (IA). Pages are defined by concise prompts that describe their structure, purpose, and behavior. Architecture Decisions (ADRs) document the "why" behind technical choices. This structure enables high collaboration between humans and LLMs, ensuring thoughtful, testable, and consistent design as the app grows.
 
 ## Tech Stack
 - **Frontend:** Plain HTML, CSS, and JavaScript (no frameworks like React; just a simple static website)
@@ -90,6 +100,12 @@ I am building a static mobile-responsive web app to help me and my spouse track,
 - **Customization:** It utilizes CSS custom properties (design tokens) and the ::part pseudo-element, allowing you to easily tweak themes, colors, and layouts to match your branding.
 - **Ease of Use:** Shoelace is framework-agnostic and can be integrated into any project with minimal setup, making it ideal for static sites or projects without a build system.
 - **Integration:** Components can be included via CDN, enabling quick and easy incorporation into the project without the need for complex build tools.
+
+## Architecture & State Management
+- The app uses a lightweight, modular architecture:
+  - **Reactive Store:** State is managed using a Proxy-based store (see ADR-003), enabling reactive updates and easy test coverage.
+  - **Web Components:** UI elements like `<app-header>` and `<login-button>` are implemented as custom elements for reusability and separation of concerns.
+  - **No frameworks or build tools:** All code runs natively in the browser, with Shoelace components included via CDN.
 
 ---
 
@@ -232,6 +248,7 @@ service cloud.firestore {
 - [ ] Can link/view photos as memories
 - [ ] Data is only accessible when signed in
 - [ ] App is mobile-friendly and responsive
+- All store logic and state transitions are covered by unit tests, ensuring reliability and supporting future refactoring.
 
 ---
 
@@ -254,4 +271,54 @@ For Google Photos integration, use the top-level scope:
 https://www.googleapis.com/auth/photoslibrary
 ```
 
-This scope allows both creating and listing albums, and is required for full functionality. 
+This scope allows both creating and listing albums, and is required for full functionality.
+
+## ⚠️ About Global Variables and Module Constraints
+
+**Why are we using global variables instead of ES modules?**
+
+To maximize browser compatibility and avoid the need for build tools or module loaders, all JavaScript in this project is written as classic scripts and attached to the global `window` object. This approach:
+- Ensures everything runs natively in the browser (no build step required)
+- Allows both the app and browser-based tests to access shared state and functions
+- Avoids issues with mixing ES modules and classic scripts, which can cause syntax errors in browsers
+
+**Is this a code smell?**
+- In modern JavaScript, yes—using globals is discouraged for large or complex projects.
+- For this project, given the constraints (no build tools, no frameworks, static site), it is the most pragmatic and robust solution.
+
+**If you ever migrate to a build system or module loader, refactor to use ES modules and imports/exports.**
+
+## Testing
+
+This project uses Mocha and Chai for browser-based unit testing. All store logic, authentication, and UI components related to login and dashboard are covered by unit tests, including:
+
+### Testing Strategy
+
+- **Unit tests**: Cover store logic, state transitions, and all actions (including async logic and error handling). Favor unit tests unless integration is required.
+- **Integration tests**: Test interactions between components where needed.
+- **End-to-end (E2E) tests**: Focus exclusively on real user journeys and visible outcomes. Only assert on navigation, visible UI elements, and user-facing messages. Do not assert on implementation details, internal state, localStorage, or console output. Do not attempt to test third-party flows (e.g., Google OAuth); instead, use helpers to simulate logged-in or logged-out states.
+- **State setup**: Use Cypress helpers (e.g., `cy.loginAsTestUser()`, `cy.logout()`, `cy.stubGoogleLogin()`) to simulate authentication states for E2E tests.
+- **Error handling**: Only assert on errors or messages that are visible to the user.
+
+This approach ensures tests are maintainable, fast, and focused on what matters most: the user experience.
+
+### Running Tests
+
+1. Run `bin/run-tests.sh` to start a local server and open the test runner in your browser.
+2. All tests in `tests/unit/` will be executed automatically.
+
+### Test Files
+- `authStore.test.js`: Authentication state, login/logout, persistence, and error handling
+- `appHeader.test.js`: Header UI, login/logout button, navigation
+- `loginButton.test.js`: Google sign-in button rendering and click behavior
+- `activityStore.test.js`: Activities store logic and reactivity
+- `calendarStore.test.js`: Calendar events store logic and reactivity
+- `memoryStore.test.js`: Photo memories store logic and reactivity
+
+All acceptance criteria for [Story 001: Google OAuth Login & Dashboard Intro](stories/001-login-dashboard.md) are covered by these tests.
+
+## Test Assets
+
+- A placeholder image `test.png` is used for Cypress end-to-end tests as the test user's profile photo. It is located in `public/img/test.png`. Replace it with any image if you want a different test avatar.
+
+--- 

@@ -1,0 +1,6 @@
+---
+description: Fixing failing tests
+globs: 
+alwaysApply: false
+---
+When tests fail, only fix them one at a time. Run just the failing test until it succeeds. Then rerun all, and fix the next one. Repeat until all pass.

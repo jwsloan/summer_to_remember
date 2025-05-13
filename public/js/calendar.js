@@ -1,4 +1,2 @@
 // calendar.js
-// Placeholder for calendar page logic
-
-// TODO: Integrate with Google Calendar API and Firestore for event management 
+// Logic for managing calendar events, integrating with Google Calendar and Firestore (to be implemented). 

@@ -1,0 +1,8 @@
+---
+description: How to commit when needing to force
+globs: 
+alwaysApply: false
+---
+Only use force push when absolutely necessary (e.g., after rebasing or amending commits that were already pushed).
+When force pushing is required, always use --force-with-lease instead of -f to ensure you don't accidentally overwrite others' work.
+Try a regular git push first - only use force options if the regular push fails with a non-fast-forward error.

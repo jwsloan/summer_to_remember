@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Keep README.md updated with:
+- Project description, setup steps, and local development guide.
+- Key design decisions, especially deviations from defaults.
+- Overview of conventions (user stories and test layout).

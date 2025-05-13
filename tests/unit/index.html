@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unit Tests</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mocha/mocha.css">
+  <style>body { font-family: sans-serif; }</style>
+</head>
+<body>
+  <div id="mocha"></div>
+  <script src="https://cdn.jsdelivr.net/npm/mocha/mocha.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.4/chai.min.js"></script>
+  <script>
+ // Minimal html tag function (just returns the string)
+  window.html = (strings, ...values) => {
+    let str = strings[0];
+    values.forEach((v, i) => { str += v + strings[i + 1]; });
+    return str;
+  };
+
+  // Minimal fixture: injects HTML into a container and returns the first child
+  window.fixture = async (htmlString) => {
+    const container = document.createElement('div');
+    container.innerHTML = htmlString.trim();
+    document.body.appendChild(container);
+    // Optionally, wait for custom elements to upgrade/render
+    await Promise.resolve();
+    return container.firstElementChild;
+  };
+</script>
+  <script src="../../public/components/app-header.js"></script>
+  <script src="../../public/store/auth-store.js"></script>
+  <script src="../../public/components/login-button.js"></script>
+  <script src="../../public/store/activityStore.js"></script>
+  <script src="../../public/store/calendarStore.js"></script>
+  <script src="../../public/store/memoryStore.js"></script>
+  <script src="../../public/js/auth-controller.js"></script>
+  <script>
+    mocha.setup('bdd');
+    window.expect = chai.expect;
+  </script>
+  <!-- Test files -->
+  <script src="./authStore.test.js"></script>
+  <script src="./appHeader.test.js"></script>
+  <script src="./loginButton.test.js"></script>
+  <script src="./activityStore.test.js"></script>
+  <script src="./calendarStore.test.js"></script>
+  <script src="./memoryStore.test.js"></script>
+  <script>
+    window.onload = function() { mocha.run(); };
+  </script>
+</body>
+</html> 

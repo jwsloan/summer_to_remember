@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Only modify files directly related to the current user story or bugfix; avoid unrelated edits.

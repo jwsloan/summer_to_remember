@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Summer to Remember</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Shoelace CDN for UI components -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/themes/light.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/shoelace.js"></script>
+  <script src="/js/config.js"></script>
+  <script src="/store/auth-store.js"></script>
+  <script src="/components/app-header.js"></script>
+  <script src="/components/login-button.js"></script>
+</head>
+<body>
+  <app-header title="Login"></app-header>
+  <main class="centered">
+    <section class="login-card">
+      <h1>Welcome</h1>
+      <p>Sign in to access your summer dashboard.</p>
+      <login-button></login-button>
+    </section>
+  </main>
+  <script src="/js/auth-controller.js"></script>
+</body>
+</html> 

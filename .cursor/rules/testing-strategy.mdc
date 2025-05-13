@@ -1,0 +1,14 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Unit tests are great, favor them if they don't require mocks or stubs.
+From there, use integration tests for testing interactions between rails components.
+end to end tests should focus on actual user journeys.
+Let's try to honor the traditional test pyramid.
+We strongly discourage mocks and stubs. Avoid if at all possible.
+
+Cover both happy and unhappy paths.
+
+Do not assert against specific css values or html elements. Focus on functionality and content.

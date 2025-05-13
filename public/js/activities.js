@@ -1,4 +1,2 @@
 // activities.js
-// Placeholder for activities page logic
-
-// TODO: Integrate with Google Tasks API and Firestore for activity management 
+// Logic for managing activities, integrating with Google Tasks and Firestore (to be implemented). 

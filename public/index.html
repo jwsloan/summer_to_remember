@@ -1,92 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Summer to Remember</title>
-  <!-- Shoelace CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/themes/light.css" />
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Shoelace CDN for UI components -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/themes/light.css">
   <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/shoelace.js"></script>
-  <link rel="stylesheet" href="css/styles.css" />
-  <!-- Beach emoji favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%8F%96%EF%B8%8F%3C/text%3E%3C/svg%3E">
-  <!-- Firebase Compat CDN scripts -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="/js/config.js"></script>
+  <script src="/store/auth-store.js"></script>
+  <script src="/components/app-header.js"></script>
+  <script src="/components/login-button.js"></script>
 </head>
 <body>
-  <header style="display: flex; align-items: center; justify-content: space-between;">
-    <h1>☀️ Summer to Remember</h1>
-    <div class="auth-controls" style="display: flex; align-items: center; gap: 0.5em;">
-      <sl-button id="sign-in-btn" variant="primary">Sign in with Google</sl-button>
-      <sl-button id="sign-out-btn" variant="danger" style="display:none;">Sign out</sl-button>
-      <div id="user-info" style="margin-left: 1em;"></div>
-      <div id="auth-error" style="color:red; margin-left: 1em;"></div>
-    </div>
-  </header>
-  <nav>
-    <sl-button href="activities.html" variant="primary">Activities</sl-button>
-    <sl-button href="calendar.html" variant="success">Calendar</sl-button>
-    <sl-button href="memories.html" variant="warning">Memories</sl-button>
-    <sl-button href="settings.html" variant="default">Settings</sl-button>
-  </nav>
-  <main>
-    <p>Welcome! Plan, schedule, and remember your best summer yet.</p>
+  <app-header title="Summer to Remember"></app-header>
+  <main class="centered">
+    <section class="login-card">
+      <h1>Welcome to Summer to Remember</h1>
+      <p>Plan, track, and capture your summer adventures with Google Tasks, Calendar, and Photos—all in one place.</p>
+      <div id="index-action"><sl-spinner style="font-size:2rem;"></sl-spinner></div>
+    </section>
   </main>
-  <script src="js/config.js"></script>
-  <script src="js/auth.js"></script>
+  <script src="/js/auth-controller.js"></script>
   <script>
-  // Wait for DOM and Shoelace to be ready
-  document.addEventListener('DOMContentLoaded', function() {
-    const signInBtn = document.getElementById('sign-in-btn');
-    const signOutBtn = document.getElementById('sign-out-btn');
-    const userInfo = document.getElementById('user-info');
-    const authError = document.getElementById('auth-error');
-
-    function showUser(user) {
-      userInfo.textContent = `Signed in as: ${user.displayName} (${user.email})`;
-      authError.textContent = '';
-    }
-    function showSignedOut() {
-      userInfo.textContent = '';
-      authError.textContent = '';
-    }
-    function showDenied() {
-      userInfo.textContent = '';
-      authError.textContent = 'Access denied. You are not authorized to use this app.';
-    }
-
-    // Listen for auth state changes
-    window.authHelpers.onAuthStateChanged(user => {
-      if (user) {
-        // Check UID restriction
-        if (typeof ALLOWED_UIDS !== 'undefined' && !ALLOWED_UIDS.includes(user.uid)) {
-          showDenied();
-          signInBtn.style.display = '';
-          signOutBtn.style.display = 'none';
-          setTimeout(() => window.authHelpers.signOut(), 1000);
+    // Show login button or dashboard link based on auth state
+    function renderIndexAction() {
+      const actionDiv = document.getElementById('index-action');
+      if (window.s2r.auth && window.s2r.auth.store && window.s2r.auth.store.isLoggedIn !== undefined) {
+        if (window.s2r.auth.store.isLoggedIn) {
+          actionDiv.innerHTML = '<sl-button variant="primary" onclick="window.location.href=\'/dashboard.html\'">Go to Dashboard</sl-button>';
         } else {
-          showUser(user);
-          signInBtn.style.display = 'none';
-          signOutBtn.style.display = '';
+          actionDiv.innerHTML = '<login-button></login-button>';
         }
       } else {
-        showSignedOut();
-        signInBtn.style.display = '';
-        signOutBtn.style.display = 'none';
+        actionDiv.innerHTML = '<sl-spinner style="font-size:2rem;"></sl-spinner>';
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.s2r && window.s2r.initAuthController) {
+        window.s2r.initAuthController();
+      }
+      renderIndexAction();
+      if (window.s2r.auth && window.s2r.auth.subscribe) {
+        window.s2r.auth.subscribe(renderIndexAction);
+      } else {
+        // Try again after a short delay if authStore isn't ready
+        setTimeout(() => {
+          if (window.s2r.auth && window.s2r.auth.subscribe) {
+            window.s2r.auth.subscribe(renderIndexAction);
+            renderIndexAction();
+          }
+        }, 200);
       }
     });
-
-    signInBtn.addEventListener('click', () => {
-      window.authHelpers.signInWithGoogle().catch(err => {
-        authError.textContent = err.message;
-      });
-    });
-    signOutBtn.addEventListener('click', () => {
-      window.authHelpers.signOut();
-    });
-  });
   </script>
 </body>
-</html>
+</html> 

@@ -1,0 +1,23 @@
+---
+description: Approach to committing. How to apply conventional commits.
+globs: 
+alwaysApply: false
+---
+Header: <type>(<scope>): <short summary> (e.g. feat(auth): add signup form)
+A short, concise description of the change.
+
+Body: REQUIRED. The body explains the motivation for the change:
+- The business or technical problem being solved
+- The reasoning behind the approach
+- Important context for future developers
+
+Do not describe the code changes in the body - that's what the git diff is for.
+
+Footer: Reference the relevant user story IDs (e.g. Refs Story 001 – Signup).
+
+Workflow: After each logical change:
+1. Stage your changes
+2. Write a concise header describing what changed
+3. Write a body focused on motivation and context
+4. Add the story reference in the footer
+5. Review and commit, using multiple -m flags for new lines
