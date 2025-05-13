@@ -5,7 +5,8 @@ alwaysApply: false
 ---
 ## ✅ Performance-Conscious Code
 
+- SvelteKit's build process and code-splitting help optimize performance
 - Minimize file sizes and dependencies
-- Lazy-load assets when possible
+- Lazy-load assets and components when possible
 - Avoid large libraries or redundant scripts
 - Inline critical styles if appropriate

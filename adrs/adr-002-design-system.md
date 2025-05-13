@@ -1,24 +1,23 @@
-# ADR-002: Adopt a Google-Inspired Design System Using CSS Variables and Utility Classes
+# ADR-002: Adopt a Google-Inspired Design System Using CSS Variables, Svelte Components, and Shoelace
 
 **Status**: Accepted  
-**Date**: 2025-05-12
+**Date**: 2025-05-12 (updated for SvelteKit migration)
 
 ---
 
 ## Context
 
-This app integrates Google Tasks, Calendar, and Photos, and should feel visually consistent with those tools. As a backend-heavy team relying on LLM assistance, we need an opinionated, easy-to-reference styling system without frameworks.
+This app integrates Google Tasks, Calendar, and Photos, and should feel visually consistent with those tools. As we migrate to SvelteKit, we want to maintain an opinionated, easy-to-reference styling system that leverages Svelte's component model and scoped styles, while still using CSS variables for global theming.
 
 ---
 
 ## Decision
 
-Use **vanilla CSS** with **custom properties** to define a shared design system:
-
-- All styles live in a single `style.css`
-- Define tokens for colors, typography, spacing, and radius
-- Style components (Web Components or HTML) via utility classes and scoped selectors
-- Prompt LLMs with real-world analogies (“like Google Calendar”) and component names
+- Use **Svelte components** for all UI structure and logic.
+- Use **CSS custom properties** (variables) to define a shared design system for colors, typography, spacing, and radius.
+- Style components via Svelte's scoped styles and utility classes, referencing global tokens.
+- Use **Shoelace** for prebuilt, accessible UI components, styled with our design tokens.
+- Prompt LLMs with real-world analogies (“like Google Calendar”) and component names.
 
 ---
 
@@ -27,4 +26,4 @@ Use **vanilla CSS** with **custom properties** to define a shared design system:
 - Consistent, familiar UI for users of Google apps
 - No CSS-framework bloat—bundle remains lightweight
 - LLM-friendly prompts and easy global theming via variables
-- Foundation for rapid, coherent design growth
+- Foundation for rapid, coherent design growth using Svelte's component model
