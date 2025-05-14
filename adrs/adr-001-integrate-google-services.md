@@ -1,25 +1,24 @@
-# ADR-001: Integrate Google Services with SvelteKit Frontend
+# ADR-001: Integrate Google Services with Frontend
 
 **Status**: Accepted  
-**Date**: 2025-05-12 (updated for SvelteKit migration)
+**Date**: 2025-05-12 (updated for technology stack migration)
 
 ---
 
 ## Context
 
-The application integrates Google Tasks, Calendar, and Photos to help users plan, schedule, and capture memories. Originally, the frontend was implemented with vanilla JS and web components. We have now migrated to a SvelteKit-based frontend for improved developer experience, maintainability, and speed.
+The application integrates Google Tasks, Calendar, and Photos to help users plan, schedule, and capture memories. Originally, the frontend had a different architecture. We have now migrated to an improved frontend architecture for better developer experience, maintainability, and speed.
 
 ## Decision
 
-- The frontend will be built with SvelteKit and Svelte components.
-- Google APIs (Tasks, Calendar, Photos, Picker) will be accessed from the SvelteKit app using OAuth tokens managed by Firebase Authentication.
-- State management will use Svelte stores for reactivity and modularity.
+- The frontend will be built using a modular and reusable component-based approach.
+- Google APIs (Tasks, Calendar, Photos, Picker) will be accessed from the app using OAuth tokens managed by Firebase Authentication.
+- State management will ensure reactivity and modularity.
 - Firebase remains the backend for authentication, Firestore database, and hosting.
-- Shoelace will be used for prebuilt UI components, integrated within Svelte components.
+- Prebuilt UI components may be used to accelerate development.
 
 ## Consequences
 
-- Enables a modern, component-based architecture with SvelteKit.
-- Simplifies state management and reactivity using Svelte stores.
+- Enables an improved frontend architecture.
+- Simplifies state management and reactivity.
 - Maintains secure, scalable backend services with Firebase.
-- UI development is faster and more maintainable with Svelte and Shoelace.

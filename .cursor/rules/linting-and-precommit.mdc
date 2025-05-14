@@ -1,0 +1,87 @@
+# Rule: Code Quality Standards and Pre-commit Hooks
+
+## Purpose
+
+Maintain a high-quality, consistent codebase by enforcing quality standards and automated checks before code is committed. This rule applies to all contributors and all code, regardless of programming language or platform.
+
+## Requirements
+
+- **Code Quality Standards:**
+  - Use appropriate static analysis tools for your programming language.
+  - Apply consistent formatting standards across your codebase.
+  - Follow idiomatic practices for your chosen language and framework.
+  - Automate code quality checks where possible.
+
+- **Pre-commit Hooks:**
+  - Use a version control hook mechanism appropriate for your system.
+  - Set up tools to run quality checks only on changed files when possible.
+  - Hooks must:
+    - Run static analysis and formatting checks on staged files.
+    - Run appropriate tests.
+    - Block commits of files larger than 2MB (or an appropriate size limit).
+  - Hooks must run automatically on every commit.
+
+- **Manual Commands:**
+  - Provide commands to check code quality across the entire codebase.
+  - Provide commands to automatically fix common issues where possible.
+  - Provide commands to run the full test suite.
+
+## Configuration Example
+
+Below are conceptual examples that should be adapted to your specific tech stack:
+
+### Static Analysis Configuration
+```
+# Conceptual configuration - implement using your language's tools
+ANALYSIS_RULES = [
+  "enforce_naming_conventions",
+  "check_for_common_errors",
+  "enforce_style_standards"
+]
+
+IGNORE_PATHS = [
+  "build_output/",
+  "third_party_dependencies/",
+  "generated_code/"
+]
+```
+
+### Formatter Configuration
+```
+# Conceptual configuration - implement using your language's formatter
+{
+  "line_length": 100,
+  "indentation": 2,
+  "enforce_consistent_style": true
+}
+```
+
+### Version Control Hooks
+
+**Install:**
+```sh
+# Install appropriate version control hooks for your system
+# Example: Git hooks, Mercurial hooks, etc.
+```
+
+**Configure file-specific checks:**
+```
+# Conceptual configuration - implement using appropriate tools
+{
+  "source_files": ["run_static_analysis", "run_formatter"],
+  "documentation": ["check_spelling", "validate_links"],
+  "configuration_files": ["validate_syntax", "check_formatting"],
+  "test_files": ["run_tests_for_changed_functionality"]
+}
+```
+
+## Enforcement
+
+- All contributors must have appropriate hooks installed.
+- Continuous integration should also run quality checks to prevent bypassing hooks.
+- Pull/merge requests that do not pass quality checks will not be accepted.
+
+## References
+- Resources for code quality tools in your programming language
+- Documentation for your version control system's hook mechanisms
+- Best practices for your specific technology stack's quality standards 

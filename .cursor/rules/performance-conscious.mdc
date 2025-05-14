@@ -3,10 +3,16 @@ description: Prioritize performance by minimizing file sizes and dependencies, a
 globs: 
 alwaysApply: false
 ---
-## ✅ Performance-Conscious Code
+1|---
+2|description: Prioritize performance by minimizing file sizes and dependencies, and optimizing load times.
+3|globs: 
+4|alwaysApply: false
+5|---
+6|## ✅ Performance-Conscious Code
+7|
+8|- Minimize file sizes and dependencies
+9|- Lazy-load assets and components when possible
+10|- Avoid large libraries or redundant scripts
+11|- Inline critical styles if appropriate
 
-- SvelteKit's build process and code-splitting help optimize performance
-- Minimize file sizes and dependencies
-- Lazy-load assets and components when possible
-- Avoid large libraries or redundant scripts
-- Inline critical styles if appropriate
+The build process and code-splitting of the chosen framework help optimize performance

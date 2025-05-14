@@ -15,7 +15,7 @@
      - Clicking triggers Google OAuth flow.
    - On successful login, the user is redirected to `/dashboard.html`
      - User's profile information (name, email) is stored in the session or localStorage
-   - **Google-inspired UI:** The login page and button should look and feel like a Google login screen, using Shoelace and custom CSS variables for color, spacing, and typography.
+   - **Google-inspired UI:** The login page and button should look and feel like a Google login screen, using a component library and custom CSS variables for color, spacing, and typography.
 
 2. **Dashboard View**
    - `<app-header>` title becomes "Dashboard"
@@ -24,7 +24,7 @@
      - **Today**: Count of tasks scheduled for today with a "Go to Today" button
    - **Google profile image** is displayed next to the user's name in the top-right corner of the header
    - "Photos" button in header navigates to `/photos.html`
-   - **Google-inspired UI:** The dashboard layout, cards, and buttons should match Google's design system as closely as possible, using Shoelace and custom CSS variables.
+   - **Google-inspired UI:** The dashboard layout, cards, and buttons should match Google's design system as closely as possible, using a component library and custom CSS variables.
 
 3. **LLM Integration**
    - Use `<login-button>` component for Google OAuth

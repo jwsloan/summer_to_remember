@@ -4,7 +4,7 @@ globs:
 alwaysApply: true
 ---
 Unit tests are great, favor them if they don't require mocks or stubs.
-From there, use integration tests for testing interactions between Svelte components.
+From there, use integration tests for testing interactions between components.
 End to end tests should focus on actual user journeys.
 Let's try to honor the traditional test pyramid.
 We strongly discourage mocks and stubs. Avoid if at all possible.
@@ -13,5 +13,5 @@ Cover both happy and unhappy paths.
 
 Do not assert against specific css values or html elements. Focus on functionality and content.
 
-- Use Vitest for unit and component tests of Svelte components.
-- Use Playwright for end-to-end tests simulating real user flows.
+- Use appropriate tools for unit and component tests of components.
+- Use appropriate tools for end-to-end tests simulating real user flows.

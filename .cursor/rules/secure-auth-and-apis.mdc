@@ -5,7 +5,7 @@ alwaysApply: false
 ---
 ## ✅ Secure Google Integration
 
-- Use Firebase Authentication with Google Sign-In (integrated in SvelteKit)
+- Use Firebase Authentication with Google Sign-In (integrated in the chosen frontend framework)
 - Only request OAuth scopes for Calendar, Tasks, and Photos
 - Use HTTPS for all API calls
-- Never hardcode credentials or tokens (use environment variables in SvelteKit)
+- Never hardcode credentials or tokens (use environment variables in the chosen frontend framework)

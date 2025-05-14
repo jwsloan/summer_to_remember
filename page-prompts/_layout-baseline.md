@@ -8,7 +8,7 @@
 - Max content width 720px, centered on wide screens
 - Touch-target minimum 40px height
 - **Google-inspired look:** Use color palette, spacing, and typography similar to Google Calendar, Tasks, and Photos. Surfaces are clean, with subtle shadows and rounded corners. UI should feel native to Google services.
-- Use Shoelace components for buttons and inputs, styled with custom CSS variables for Google-like theming.
+- Use UI components from a component library for buttons and inputs, styled with custom CSS variables for Google-like theming.
 
 ## Typography
 - Font: Roboto

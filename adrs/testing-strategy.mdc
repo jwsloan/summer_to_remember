@@ -1,13 +1,13 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
 Unit tests are great, favor them if they don't require mocks or stubs.
-From there, use integration tests for testing interactions between Svelte components.
+From there, use integration tests for testing interactions between components.
 End-to-end (E2E) tests should focus exclusively on real user journeys and visible outcomes. Only assert on navigation, visible UI elements, and user-facing messages. Do not assert on implementation details, internal state, localStorage, or console output. Do not attempt to test third-party flows (e.g., Google OAuth); instead, use helpers to simulate logged-in or logged-out states.
 
-State setup: Use Playwright helpers or fixtures to simulate authentication states for E2E tests in SvelteKit.
+State setup: Use helpers or fixtures to simulate authentication states for E2E tests.
 
 Cover both happy and unhappy paths.
 
@@ -16,5 +16,5 @@ Do not assert against specific CSS values or HTML elements. Focus on functionali
 Let's try to honor the traditional test pyramid.
 We strongly discourage mocks and stubs. Avoid if at all possible.
 
-- Use Vitest for unit and component tests of Svelte components.
-- Use Playwright for end-to-end tests simulating real user flows in SvelteKit.
+- Use appropriate tools for unit and component tests of components.
+- Use appropriate tools for end-to-end tests simulating real user flows.
