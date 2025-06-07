@@ -1,0 +1,64 @@
+{
+  "created_at": "2025-05-25T18:02:44.405409Z",
+  "updated_at": "2025-06-07T00:00:00.000000Z",
+  "user_context": {
+    "technical_background": "expert",
+    "product_experience": "intermediate", 
+    "design_experience": "beginner",
+    "project_type": "web_app",
+    "project_scope": "personal",
+    "preferred_guidance_style": "detailed"
+  },
+  "family_context": {
+    "family_size": "2-4 members",
+    "age_ranges": ["adults", "teens"],
+    "technical_comfort_levels": {
+      "adults": "intermediate",
+      "teens": "expert"
+    },
+    "primary_devices": ["mobile", "tablet", "desktop"],
+    "summer_planning_style": "collaborative",
+    "memory_keeping_preferences": ["photos", "written_notes"],
+    "current_tools": {
+      "google_services": ["gmail", "calendar", "photos", "tasks"],
+      "family_organization": ["shared_calendar", "text_messages"],
+      "photo_sharing": "google_photos"
+    }
+  },
+  "summer_priorities": {
+    "activity_types": ["outdoor_adventures", "local_events", "family_bonding", "cultural_activities"],
+    "scheduling_preferences": {
+      "advance_planning": "moderate", 
+      "spontaneous_activities": "welcome",
+      "reminder_frequency": "weekly"
+    },
+    "memory_capture_goals": {
+      "real_time_capture": "high_priority",
+      "retrospective_journaling": "medium_priority", 
+      "photo_organization": "high_priority",
+      "sharing_with_extended_family": "low_priority"
+    },
+    "collaboration_style": {
+      "activity_suggestion": "anyone_can_suggest",
+      "scheduling_authority": "parents_approve",
+      "memory_contribution": "everyone_participates"
+    }
+  },
+  "technical_constraints": {
+    "internet_connectivity": {
+      "home": "reliable_wifi",
+      "mobile": "good_data_plan", 
+      "activity_locations": "variable_connectivity"
+    },
+    "device_sharing": "each_member_has_device",
+    "data_privacy_concerns": "moderate",
+    "battery_life_considerations": "important_for_day_trips"
+  },
+  "success_metrics": {
+    "activity_completion_target": "75_percent",
+    "memory_capture_completeness": "all_major_activities",
+    "family_engagement_goal": "all_members_contribute",
+    "retrospective_value": "want_to_revisit_memories"
+  },
+  "onboarding_version": "2.0"
+}

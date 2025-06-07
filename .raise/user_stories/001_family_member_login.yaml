@@ -1,0 +1,8 @@
+id: "AUTH-001"
+title: "Family Member Login"
+description: "As a family member, I want to sign in with my Google account so I can access our family's summer activities"
+acceptance_criteria:
+  - "Google sign-in button is displayed on login page"
+  - "Successfully authenticates with Firebase using Google OAuth"
+  - "Redirects to home page after successful login"
+size: "small"

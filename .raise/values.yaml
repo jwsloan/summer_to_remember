@@ -1,0 +1,27 @@
+values:
+  - name: Family First
+    description: Every feature should strengthen family connections and make it easy for all family members to participate, regardless of age or tech skill
+    
+  - name: Memories Over Features
+    description: Prioritize capturing and preserving meaningful moments over adding complex functionality
+    
+  - name: Simplicity Wins
+    description: Keep the interface intuitive enough that the youngest and oldest family members can use it without frustration
+    
+  - name: Action Over Planning
+    description: Focus on features that help activities actually happen rather than just planning them
+    
+  - name: Every Voice Matters
+    description: Ensure each family member can contribute their perspective and hopes for shared experiences
+    
+  - name: Joy in the Journey
+    description: The app should spark excitement and anticipation, not feel like another chore
+    
+  - name: Privacy Protected
+    description: Family memories are private - ensure data stays within the family's control
+    
+  - name: Sustainable Development
+    description: Build only what the family will actually use and maintain throughout the summer
+    
+  - name: Leverage Existing Tools
+    description: Minimize custom code by integrating with proven services like Google Tasks, Calendar, and Photos rather than reinventing the wheel

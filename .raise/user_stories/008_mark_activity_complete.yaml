@@ -1,0 +1,8 @@
+id: "ACTIVITIES-005"
+title: "Mark Activity Complete"
+description: "As a family member, I want to mark an activity as complete so we can track our progress"
+acceptance_criteria:
+  - "Complete button available on scheduled activities"
+  - "Activity moves to completed section"
+  - "Visual indicator shows completion"
+size: "small"

@@ -1,0 +1,8 @@
+id: "MEMORIES-002"
+title: "View Activity Photos"
+description: "As a family member, I want to see photos from our activities so we can relive the memories"
+acceptance_criteria:
+  - "Photos are loaded from Google Photos album"
+  - "Thumbnail grid is displayed"
+  - "Can click to view full size"
+size: "small"

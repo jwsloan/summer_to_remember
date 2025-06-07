@@ -1,0 +1,8 @@
+id: "AUTH-002"
+title: "Family Member Logout"
+description: "As a family member, I want to log out so others can use the app on the same device"
+acceptance_criteria:
+  - "Logout option is available from user profile"
+  - "Clears user session completely"
+  - "Redirects to login page"
+size: "small"

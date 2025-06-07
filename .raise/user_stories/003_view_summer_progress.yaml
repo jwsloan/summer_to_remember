@@ -1,0 +1,8 @@
+id: "HOME-001"
+title: "View Summer Progress"
+description: "As a family member, I want to see our summer progress on the home page so I can quickly understand what we've accomplished"
+acceptance_criteria:
+  - "Shows count of total activities"
+  - "Shows count of completed activities"
+  - "Shows count of photos captured"
+size: "small"

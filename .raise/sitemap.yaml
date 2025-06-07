@@ -1,0 +1,84 @@
+sitemap:
+  title: "Summer to Remember - Family Activity Tracker"
+  
+  pages:
+    - name: "Home"
+      path: "/"
+      description: "Dashboard with summer overview and quick access to key features"
+      sections:
+        - "Welcome message with family vision board"
+        - "Quick stats (activities completed, photos captured, etc.)"
+        - "Recent activity highlights"
+        - "Quick actions (add activity, view calendar)"
+      
+    - name: "Activities List"
+      path: "/activities"
+      description: "Master list of summer activities organized by status"
+      sections:
+        - "Unscheduled Activities"
+        - "Scheduled Activities" 
+        - "Completed Activities"
+        - "Add New Activity button"
+      filters:
+        - "All activities"
+        - "By family member"
+        - "By activity type"
+      
+    - name: "Activity Detail"
+      path: "/activities/:id"
+      description: "Individual activity page with photos, journals, and scheduling"
+      sections:
+        - "Activity overview and description"
+        - "Scheduling section (Google Calendar integration)"
+        - "Photo album (Google Photos integration)"
+        - "Family journal entries"
+        - "Individual member hopes/expectations"
+        - "Photo captions and memories"
+      actions:
+        - "Edit activity details"
+        - "Add photos"
+        - "Write journal entry"
+        - "Add to calendar"
+        - "Mark as complete"
+      
+    - name: "Family Login"
+      path: "/login"
+      description: "Firebase authentication for family members"
+      sections:
+        - "Google sign-in for family members"
+        - "Family member selection"
+      
+  navigation:
+    primary:
+      - "Home"
+      - "Activities"
+      - "Family Profile"
+    
+    secondary:
+      - "Settings"
+      - "Help"
+  
+  external_integrations:
+    - name: "Google Tasks"
+      purpose: "Activity list management"
+      integration_points:
+        - "Activities List page"
+        - "Activity creation"
+    
+    - name: "Google Calendar" 
+      purpose: "Activity scheduling"
+      integration_points:
+        - "Activity Detail scheduling"
+        - "Home dashboard calendar view"
+    
+    - name: "Google Photos"
+      purpose: "Photo storage and albums"
+      integration_points:
+        - "Activity Detail photo display"
+        - "Photo upload and organization"
+    
+    - name: "Firebase Auth"
+      purpose: "Family member authentication"
+      integration_points:
+        - "Login page"
+        - "User session management"

@@ -1,0 +1,8 @@
+id: "MEMORIES-001"
+title: "Add Journal Entry"
+description: "As a family member, I want to write about an activity so we can capture our individual perspectives"
+acceptance_criteria:
+  - "Text area for writing memory"
+  - "Shows author name with entry"
+  - "Entry is saved and displayed"
+size: "small"

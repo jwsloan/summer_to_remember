@@ -1,0 +1,24 @@
+backlog_ideas:
+  - title: "Bulk Photo Upload"
+    description: "Quick way to upload multiple photos to an activity at once"
+    rough_notes: "Drag/drop interface, batch processing"
+    
+  - title: "Activity Templates"
+    description: "Save common activities as templates for easy reuse"
+    rough_notes: "Beach day template, camping template, etc."
+    
+  - title: "Weather Integration"
+    description: "Show weather for scheduled outdoor activities"
+    rough_notes: "Simple weather API call, basic forecast display"
+    
+  - title: "Activity Sharing"
+    description: "Share individual activities with extended family"
+    rough_notes: "Read-only link sharing, no account required"
+    
+  - title: "Year-end Memory Book"
+    description: "Generate a summary of the summer's activities and photos"
+    rough_notes: "Simple HTML/PDF export of memories"
+    
+  - title: "Activity Reminders"
+    description: "Optional notifications for upcoming scheduled activities"
+    rough_notes: "Browser notifications or email reminders"
