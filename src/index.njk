@@ -1,0 +1,189 @@
+---
+layout: base.njk
+title: Dashboard
+---
+
+<div class="dashboard-header">
+    <h1>Summer 2024</h1>
+    <button type="button" class="btn btn-primary">+ New Activity</button>
+</div>
+
+<div class="stats-row">
+    <div class="stat-card">
+        <span class="stat-icon">🎯</span>
+        <div class="stat-content">
+            <span class="stat-number" id="total-activities">12</span>
+            <span class="stat-label">Activities Planned</span>
+        </div>
+    </div>
+    <div class="stat-card">
+        <span class="stat-icon">✅</span>
+        <div class="stat-content">
+            <span class="stat-number" id="completed-activities">5</span>
+            <span class="stat-label">Completed</span>
+        </div>
+    </div>
+    <div class="stat-card">
+        <span class="stat-icon">📸</span>
+        <div class="stat-content">
+            <span class="stat-number" id="photos-captured">47</span>
+            <span class="stat-label">Photos</span>
+        </div>
+    </div>
+    <div class="stat-card">
+        <span class="stat-icon">⭐</span>
+        <div class="stat-content">
+            <span class="stat-number" id="memories-made">8</span>
+            <span class="stat-label">Memories</span>
+        </div>
+    </div>
+</div>
+
+<div class="card-grid">
+    <section class="card">
+        <h3>Recent Adventures</h3>
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-date">Yesterday</div>
+                <h4>Beach Day at Crystal Cove</h4>
+                <div class="activity-meta">
+                    <span class="tag">🏖️ Beach</span>
+                    <span class="tag">📸 3 photos</span>
+                    <span class="tag">📝 2 entries</span>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-date">June 3</div>
+                <h4>Hiking at Pine Ridge Trail</h4>
+                <div class="activity-meta">
+                    <span class="tag">🥾 Outdoors</span>
+                    <span class="tag">📸 8 photos</span>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-date">May 31</div>
+                <h4>Summer Kickoff BBQ</h4>
+                <div class="activity-meta">
+                    <span class="tag">🍔 Food</span>
+                    <span class="tag">👨‍👩‍👧‍👦 Family</span>
+                    <span class="tag">📸 15 photos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h3>Upcoming Plans</h3>
+        <div class="activity-list">
+            <div class="activity-item upcoming">
+                <div class="activity-date">Tomorrow</div>
+                <h4>Zoo Adventure</h4>
+                <div class="activity-meta">
+                    <span class="tag">🦁 Animals</span>
+                    <span class="tag">📍 San Diego Zoo</span>
+                </div>
+            </div>
+            <div class="activity-item upcoming">
+                <div class="activity-date">This Weekend</div>
+                <h4>Camping Under the Stars</h4>
+                <div class="activity-meta">
+                    <span class="tag">🏕️ Camping</span>
+                    <span class="tag">⭐ Stargazing</span>
+                </div>
+            </div>
+        </div>
+        <a href="/activities" class="view-all-link">View all activities →</a>
+    </section>
+</div>
+
+<style>
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--space-lg);
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.activity-item {
+    padding: var(--space-md);
+    background: var(--color-background-alt);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.activity-item:hover {
+    background: var(--color-neutral-100);
+}
+
+.activity-item.upcoming {
+    border-left: 3px solid var(--color-secondary);
+}
+
+.activity-date {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    margin-bottom: var(--space-xs);
+}
+
+.activity-item h4 {
+    margin-bottom: var(--space-sm);
+    color: var(--color-neutral-900);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+}
+
+.activity-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.tag {
+    display: inline-block;
+    padding: 2px var(--space-sm);
+    background: white;
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+}
+
+.view-all-link {
+    display: inline-block;
+    margin-top: var(--space-md);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.view-all-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+    
+    .dashboard-header .btn {
+        width: 100%;
+    }
+    
+    .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+</style>

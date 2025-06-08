@@ -1,0 +1,24 @@
+<nav>
+    <div class="nav-brand">
+        <a href="/">Summer to Remember</a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <ul class="nav-menu nav-desktop">
+        <li><a href="/" class="nav-link"{% if page.url == "/" %} aria-current="page"{% endif %}>Dashboard</a></li>
+        <li><a href="/activities/" class="nav-link"{% if page.url.startsWith("/activities") %} aria-current="page"{% endif %}>Activities</a></li>
+        <li><a href="/login/" class="nav-link nav-link-accent" id="auth-link"{% if page.url == "/login/" %} aria-current="page"{% endif %}>Login</a></li>
+    </ul>
+
+    <!-- Mobile Navigation -->
+    <details class="nav-mobile">
+        <summary class="nav-toggle" aria-label="Toggle navigation">
+            <span class="hamburger"></span>
+        </summary>
+        <ul class="nav-menu">
+            <li><a href="/" class="nav-link"{% if page.url == "/" %} aria-current="page"{% endif %}>Dashboard</a></li>
+            <li><a href="/activities/" class="nav-link"{% if page.url.startsWith("/activities") %} aria-current="page"{% endif %}>Activities</a></li>
+            <li><a href="/login/" class="nav-link nav-link-accent"{% if page.url == "/login/" %} aria-current="page"{% endif %}>Login</a></li>
+        </ul>
+    </details>
+</nav>

@@ -1,0 +1,19 @@
+{# Activity card component - usage:
+   {% set activity = { title: "Beach Day", date: "Yesterday", description: "Perfect weather!", tags: ["🏖️ Beach", "📸 3 photos"], status: "completed" } %}
+   {% include "activity-card.njk" %}
+#}
+
+<div class="activity-item{% if activity.status == 'upcoming' %} upcoming{% endif %}">
+    <div class="activity-date">{{ activity.date | upper }}</div>
+    <h4>{{ activity.title }}</h4>
+    {% if activity.description %}
+    <p class="activity-description">{{ activity.description }}</p>
+    {% endif %}
+    {% if activity.tags %}
+    <div class="activity-meta">
+        {% for tag in activity.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>

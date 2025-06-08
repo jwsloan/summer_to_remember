@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__raise-mcp__raise_onboard_next_question",
+      "mcp__raise-mcp__raise_guide",
+      "mcp__raise-mcp__save_raise_artifact",
+      "Bash(ls:*)",
+      "Bash(mv:*)",
+      "Bash(mise use:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm run build:*)",
+      "Bash(git add:*)",
+      "Bash(find:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run test:*)",
+      "WebFetch(domain:firebase.google.com)",
+      "Bash(claude mcp add firebase npx -y firebase-tools@latest experimental:mcp)",
+      "mcp__firebase__firebase_list_projects",
+      "mcp__firebase__firebase_get_environment",
+      "mcp__firebase__firebase_update_environment",
+      "mcp__firebase__firebase_init",
+      "Bash(firebase deploy:*)",
+      "Bash(npx firebase deploy:*)",
+      "WebFetch(domain:summer-to-remember.web.app)",
+      "WebFetch(domain:urban-fishing-alliance.netlify.app)",
+      "Bash(cat:*)",
+      "Bash(npm test)",
+      "Bash(npx playwright test:*)"
+    ],
+    "deny": []
+  },
+  "enableAllProjectMcpServers": false
+}

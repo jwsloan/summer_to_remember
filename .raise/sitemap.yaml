@@ -2,14 +2,14 @@ sitemap:
   title: "Summer to Remember - Family Activity Tracker"
   
   pages:
-    - name: "Home"
+    - name: "Dashboard"
       path: "/"
-      description: "Dashboard with summer overview and quick access to key features"
+      description: "App-style dashboard showing summer progress and recent activities"
       sections:
-        - "Welcome message with family vision board"
-        - "Quick stats (activities completed, photos captured, etc.)"
-        - "Recent activity highlights"
-        - "Quick actions (add activity, view calendar)"
+        - "Dashboard header with Summer 2024 title and New Activity button"
+        - "Four key stats cards: Activities Planned, Completed, Photos, Memories"
+        - "Recent Adventures card with activity timeline"
+        - "Upcoming Plans card with scheduled activities"
       
     - name: "Activities List"
       path: "/activities"
@@ -26,19 +26,17 @@ sitemap:
       
     - name: "Activity Detail"
       path: "/activities/:id"
-      description: "Individual activity page with photos, journals, and scheduling"
+      description: "Individual activity page with photos and family memories"
       sections:
         - "Activity overview and description"
-        - "Scheduling section (Google Calendar integration)"
+        - "Scheduling (Google Calendar integration)"
         - "Photo album (Google Photos integration)"
-        - "Family journal entries"
-        - "Individual member hopes/expectations"
-        - "Photo captions and memories"
+        - "Family memories and notes"
       actions:
         - "Edit activity details"
         - "Add photos"
-        - "Write journal entry"
-        - "Add to calendar"
+        - "Add family memory"
+        - "Schedule activity"
         - "Mark as complete"
       
     - name: "Family Login"
@@ -46,17 +44,16 @@ sitemap:
       description: "Firebase authentication for family members"
       sections:
         - "Google sign-in for family members"
-        - "Family member selection"
+        - "Clean, app-style login form"
       
   navigation:
     primary:
-      - "Home"
+      - "Dashboard"
       - "Activities"
-      - "Family Profile"
     
-    secondary:
-      - "Settings"
-      - "Help"
+    auth_dependent:
+      - "Login button (when logged out)"
+      - "User avatar/menu (when logged in)"
   
   external_integrations:
     - name: "Google Tasks"

@@ -1,0 +1,27 @@
+{
+  "name": "summer_to_remember",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "test:html": "html-validate '_site/**/*.html'",
+    "test:nav": "playwright test tests/navigation.spec.js",
+    "test": "npm run build && npm run test:html",
+    "lint": "npm run test:html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.1",
+    "@playwright/test": "^1.52.0",
+    "firebase-tools": "^14.6.0",
+    "html-validate": "^9.5.5"
+  },
+  "dependencies": {
+    "firebase": "^10.14.1",
+    "firebaseui": "^6.1.0"
+  }
+}
