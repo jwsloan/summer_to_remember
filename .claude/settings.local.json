@@ -25,7 +25,8 @@
       "WebFetch(domain:urban-fishing-alliance.netlify.app)",
       "Bash(cat:*)",
       "Bash(npm test)",
-      "Bash(npx playwright test:*)"
+      "Bash(npx playwright test:*)",
+      "Bash(npm run dev:*)"
     ],
     "deny": []
   },

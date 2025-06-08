@@ -1,11 +1,11 @@
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "your-api-key-here",
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project-id",
-  storageBucket: "your-project.appspot.com",
-  messagingSenderId: "123456789",
-  appId: "your-app-id"
+  apiKey: "AIzaSyCoQBTMnVZDFfPryRUJ3mF0tToK-Rwt29s",
+  authDomain: "summer-to-remember.firebaseapp.com",
+  projectId: "summer-to-remember",
+  storageBucket: "summer-to-remember.firebasestorage.app",
+  messagingSenderId: "823152942170",
+  appId: "1:823152942170:web:4b72efc5a839e38aec0c63"
 };
 
 export { firebaseConfig };
