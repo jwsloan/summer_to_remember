@@ -1,4 +1,25 @@
-backlog_ideas:
+current_backlog:
+  - title: "Add Journal Entries to Activities"
+    description: "Write and share thoughts about completed activities"
+    rough_notes: "Text area, author attribution, simple storage"
+    moved_from: "MEMORIES-001"
+    
+  - title: "View Activity Photos from Google Photos"
+    description: "Display photos from Google Photos albums linked to activities"
+    rough_notes: "Google Photos API, album linking, thumbnail grid"
+    moved_from: "MEMORIES-002"
+    
+  - title: "Mark Activities Complete with Photos"
+    description: "Complete activities and add photos in one flow"
+    rough_notes: "Combine completion with photo/memory capture"
+    moved_from: "ACTIVITIES-005"
+    
+  - title: "Add New Tasks via App Interface"
+    description: "Create new task ideas directly in the app instead of Google Tasks"
+    rough_notes: "Form to create tasks, sync back to Google Tasks list"
+    evolved_from: "Original ACTIVITIES-002"
+
+future_ideas:
   - title: "Bulk Photo Upload"
     description: "Quick way to upload multiple photos to an activity at once"
     rough_notes: "Drag/drop interface, batch processing"

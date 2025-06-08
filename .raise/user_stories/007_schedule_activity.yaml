@@ -1,8 +1,0 @@
-id: "ACTIVITIES-004"
-title: "Schedule Activity"
-description: "As a family member, I want to schedule an activity so it gets added to our family calendar"
-acceptance_criteria:
-  - "Date/time picker is available"
-  - "Activity is moved to scheduled section"
-  - "Event is created in Google Calendar"
-size: "small"

@@ -1,9 +1,0 @@
-id: "ACTIVITIES-002"
-title: "Add New Activity"
-description: "As a family member, I want to add a new summer activity so we can expand our list"
-acceptance_criteria:
-  - "Form has activity name field"
-  - "Form has description field"
-  - "Activity is saved to unscheduled section"
-  - "Syncs with Google Tasks"
-size: "small"

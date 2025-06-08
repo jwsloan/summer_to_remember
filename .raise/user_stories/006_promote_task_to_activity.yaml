@@ -1,0 +1,11 @@
+id: "ACTIVITIES-001"
+title: "Promote Task to Scheduled Activity"
+description: "As a family member, I want to promote a task idea to a real scheduled activity so we can plan when to do it"
+acceptance_criteria:
+  - "Can select a task and click 'Schedule This'"
+  - "Opens scheduling interface with date/time picker"
+  - "Can add additional activity details (location, duration, etc.)"
+  - "Creates event in Google Calendar"
+  - "Marks task as 'promoted' in the task list"
+  - "Activity appears in scheduled activities section"
+size: "large"

@@ -1,9 +1,0 @@
-id: "ACTIVITIES-001"
-title: "View Activities List"
-description: "As a family member, I want to see all our summer activities organized by status so I can understand what's planned"
-acceptance_criteria:
-  - "Shows unscheduled activities section"
-  - "Shows scheduled activities section"
-  - "Shows completed activities section"
-  - "Each activity shows title and brief description"
-size: "small"

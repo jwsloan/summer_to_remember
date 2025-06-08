@@ -11,18 +11,17 @@ sitemap:
         - "Recent Adventures card with activity timeline"
         - "Upcoming Plans card with scheduled activities"
       
-    - name: "Activities List"
+    - name: "Activity Ideas & Planning"
       path: "/activities"
-      description: "Master list of summer activities organized by status"
+      description: "View Google Tasks activity ideas, add family priorities/notes, and promote selected tasks to scheduled calendar events"
       sections:
-        - "Unscheduled Activities"
-        - "Scheduled Activities" 
-        - "Completed Activities"
-        - "Add New Activity button"
+        - "Task Ideas from Google Tasks (with family priority overlay)"
+        - "Promotion interface to schedule selected tasks"
+        - "View scheduled activities from Google Calendar"
       filters:
-        - "All activities"
-        - "By family member"
-        - "By activity type"
+        - "All task ideas"
+        - "By priority level"
+        - "Promoted vs unpromoted"
       
     - name: "Activity Detail"
       path: "/activities/:id"
@@ -57,25 +56,36 @@ sitemap:
   
   external_integrations:
     - name: "Google Tasks"
-      purpose: "Activity list management"
+      purpose: "Activity idea brainstorming pool"
       integration_points:
-        - "Activities List page"
-        - "Activity creation"
+        - "Activity Ideas page (read task list)"
+        - "Task list creation on first auth"
+      data_flow: "Source of truth for activity ideas and completion status"
     
     - name: "Google Calendar" 
-      purpose: "Activity scheduling"
+      purpose: "Scheduled activity management"
       integration_points:
-        - "Activity Detail scheduling"
-        - "Home dashboard calendar view"
+        - "Activity promotion creates calendar events"
+        - "Dashboard shows upcoming scheduled activities"
+      data_flow: "Source of truth for scheduled events and timing"
     
     - name: "Google Photos"
-      purpose: "Photo storage and albums"
+      purpose: "Memory storage and photo organization"
       integration_points:
-        - "Activity Detail photo display"
-        - "Photo upload and organization"
+        - "Activity memories linked to photo albums"
+        - "Completed activity photo display"
+      data_flow: "Source of truth for images and visual memories"
     
     - name: "Firebase Auth"
-      purpose: "Family member authentication"
+      purpose: "Family member authentication and Google API access"
       integration_points:
         - "Login page"
-        - "User session management"
+        - "OAuth token provision for Google APIs"
+      data_flow: "Authentication provider and API token source"
+      
+    - name: "Firebase Firestore"
+      purpose: "App-specific enhancements and tracking"
+      integration_points:
+        - "Task priority levels and family notes"
+        - "Task-to-event promotion tracking"
+      data_flow: "Enhancement layer, not source of truth"

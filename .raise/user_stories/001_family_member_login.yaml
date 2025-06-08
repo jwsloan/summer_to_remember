@@ -5,4 +5,6 @@ acceptance_criteria:
   - "Google sign-in button is displayed on login page"
   - "Successfully authenticates with Firebase using Google OAuth"
   - "Redirects to home page after successful login"
+  - "Navigation shows user name when signed in"
+status: "completed"
 size: "small"

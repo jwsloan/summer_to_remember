@@ -1,9 +1,0 @@
-id: "ACTIVITIES-003"
-title: "View Activity Details"
-description: "As a family member, I want to click on an activity to see its details, photos, and memories"
-acceptance_criteria:
-  - "Shows activity name and description"
-  - "Shows scheduling status"
-  - "Shows photos from Google Photos album"
-  - "Shows family journal entries"
-size: "small"

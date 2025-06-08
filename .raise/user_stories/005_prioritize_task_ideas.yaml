@@ -1,0 +1,10 @@
+id: "TASKS-002"
+title: "Prioritize and Add Notes to Task Ideas"
+description: "As a family member, I want to prioritize our activity ideas and add notes so we can decide which ones are most important"
+acceptance_criteria:
+  - "Can set priority level (high/medium/low) for each task"
+  - "Can add notes/thoughts about each task idea"
+  - "Priority and notes are stored locally (not synced back to Google Tasks)"
+  - "Can filter/sort tasks by priority"
+  - "Visual indicators for priority levels"
+size: "medium"

@@ -27,33 +27,71 @@
 - ✅ Responsive CSS implementing full design system with summer theme
 - ✅ App-focused dashboard layout (vs marketing-style layouts)
 - ✅ Elegant color palette with turquoise/ocean, sunset orange, nature green
-- ✅ Navigation structure updated to Dashboard|Activities|Photos|Login
+- ✅ Navigation structure updated to Dashboard|Activities|Login
 - ✅ HTML validation with html-validate
 - ✅ Playwright testing for navigation and responsive design
 - ✅ Pre-commit hooks ensuring code quality
 - ✅ Lighthouse performance standards established (ADR-007)
 - ✅ Current scores: Performance 95, Accessibility 94, Best Practices 92, SEO 73
 
-**Next:** Firebase Authentication with Google provider
+### Phase 2: Authentication ✅ COMPLETE
+**Files Created:**
+- ✅ `src/login.njk` - Login page with FirebaseUI
+- ✅ `src/js/firebase-config.js` - Firebase project configuration
+- ✅ `src/js/auth.js` - Complete Firebase authentication implementation
+- ✅ `src/_includes/nav.njk` - Modular navigation component
 
-### Phase 2: Authentication & Google Integration
+**Completed:**
+- ✅ Firebase Authentication with Google OAuth
+- ✅ FirebaseUI integration for seamless sign-in experience
+- ✅ Dynamic navigation updating based on auth state
+- ✅ User display name shown when signed in
+- ✅ Sign-out functionality with confirmation dialog
+- ✅ Auth state persistence across page reloads
+- ✅ Mobile and desktop navigation support
+- ✅ Automatic redirect handling (login ↔ dashboard)
+- ✅ Cleaned up Firebase config duplication between auth.js and firebase-config.js
+
+**Next:** Google Tasks integration for activity idea management
+
+### Phase 3: Google Tasks Integration ⚡ CURRENT
 **Files to Create:**
-- `src/login.njk` - Login page
-- `src/js/firebase-config.js` - Firebase configuration
-- Update `src/js/auth.js` - Firebase authentication implementation
-- `src/activities.njk` - Activities list page
-- `src/activity.njk` - Activity detail template
-- `src/js/google-apis.js` - Tasks, Calendar, Photos integration
-- `src/js/activities.js` - Activity management
+- `src/js/google-tasks.js` - Google Tasks API integration
+- `src/activities.njk` - Task ideas viewing and prioritization page
+- Update `src/js/auth.js` - Add Tasks API scope to authentication
+- `src/js/local-storage.js` - Priority and notes storage
+
+**Current Sprint Goals:**
+1. **Story 004: View Task Ideas from Google Tasks**
+   - Set up Google Tasks API integration with proper scopes
+   - Create or connect to "Summer 2024 Activities" task list on first login
+   - Display tasks in clean interface on /activities/ page
+   - Handle API errors gracefully
+
+**Architecture Foundation (ADR-008):**
+- Google Tasks = Activity idea pool (family brainstorming)
+- Local storage = Priority rankings and family notes  
+- Future: Google Calendar = Scheduled activities
+- Future: Google Photos = Activity memories
+
+**Implementation Notes:**
+- Use existing Firebase Auth to get Google OAuth tokens
+- Add `https://www.googleapis.com/auth/tasks` scope
+- Create dedicated task list to avoid mixing with personal tasks
+- Store local priority/notes with task IDs as keys
+
+### Phase 4: Activity Promotion & Scheduling
+**Files to Create:**
+- `src/js/google-calendar.js` - Calendar API integration
+- Enhanced activity prioritization UI
+- Task-to-calendar promotion workflow
 
 **Features:**
-- Firebase Authentication with Google OAuth
-- View activities (unscheduled, scheduled, completed)
-- Add new activities
-- Schedule activities to Google Calendar
-- Basic photo display from Google Photos
+- Prioritize and add notes to task ideas (Story 005)
+- Promote tasks to scheduled calendar events (Story 006)
+- View scheduled activities from calendar (Story 007)
 
-### Phase 3: Memories & Polish
+### Phase 4: Memories & Polish
 **Files to Create:**
 - `src/js/memories.js` - Journal entry functionality
 - Enhanced CSS for photo galleries
@@ -82,6 +120,8 @@
 ## References
 - ADR-006: Frontend technology stack decisions
 - ADR-007: Lighthouse performance standards
-- ADR-002: Google APIs integration approach
+- ADR-002: Google APIs integration approach  
+- ADR-008: Google services as data architecture backbone
+- User Stories 004-007: Google Tasks workflow implementation
 - Sitemap: Page structure and navigation
 - Design System: Interface requirements and styling

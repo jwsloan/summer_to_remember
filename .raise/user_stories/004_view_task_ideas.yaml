@@ -1,0 +1,10 @@
+id: "TASKS-001"
+title: "View Task Ideas from Google Tasks"
+description: "As a family member, I want to see our brainstormed activity ideas from Google Tasks so I can decide which ones to turn into real activities"
+acceptance_criteria:
+  - "Connects to Google Tasks API on first login"
+  - "Creates or connects to 'Summer 2024 Activities' task list"
+  - "Shows all tasks from the connected task list"
+  - "Each task shows title and completion status"
+  - "Tasks are displayed in a clean, readable format"
+size: "medium"

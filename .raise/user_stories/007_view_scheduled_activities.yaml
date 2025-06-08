@@ -1,0 +1,10 @@
+id: "ACTIVITIES-002"
+title: "View Scheduled Activities"
+description: "As a family member, I want to see our scheduled activities so I know what we have planned"
+acceptance_criteria:
+  - "Shows activities that have been promoted from tasks"
+  - "Displays date, time, and location for each activity"
+  - "Shows upcoming activities in chronological order"
+  - "Can view activity details by clicking"
+  - "Syncs with Google Calendar events"
+size: "medium"

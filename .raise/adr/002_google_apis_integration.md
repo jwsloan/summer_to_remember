@@ -16,10 +16,26 @@ Use **client-side Google API calls** with JavaScript SDK for direct browser-to-G
 - **Minimal infrastructure**: Client-side only, no backend services needed
 
 ## Implementation
-- Firebase Authentication provides Google OAuth tokens
+
+**Authentication & Scopes:**
+- Firebase Authentication provides Google OAuth tokens (implemented ✅)
+- Required API scopes:
+  - `https://www.googleapis.com/auth/tasks` - Read/write Google Tasks
+  - `https://www.googleapis.com/auth/calendar.events` - Create/read calendar events  
+  - `https://www.googleapis.com/auth/photoslibrary.readonly` - View Google Photos albums
 - Google APIs JavaScript library for client-side calls
-- Appropriate scopes: tasks.readonly, calendar.events, photos.readonly
-- Error handling for network and permission issues
+- CDN-based Firebase integration for maximum compatibility
+
+**Error Handling Strategy:**
+- Network connectivity issues: Show offline indicators
+- Permission denied: Clear user communication and re-auth flow  
+- API rate limits: Implement exponential backoff
+- Service unavailable: Graceful degradation with cached data
+
+**Current Status:**
+- ✅ Firebase Auth with Google OAuth implemented
+- ✅ CDN-based Firebase SDK integration
+- 🎯 Next: Google Tasks API integration with task list creation
 
 ## Consequences
 **Positive**: Simple architecture, real-time sync, leverages Google accounts
